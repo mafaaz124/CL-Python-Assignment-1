@@ -1,12 +1,19 @@
 # Prime Number Generator
 def is_prime(n):
-    if n < 2: return False
-    for i in range(2, int(n**0.5)+1):
-        if n % i == 0: return False
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
     return True
 
 def generate_primes(start, end):
-    return [i for i in range(start, end+1) if is_prime(i)]
+    primes = []
+    for num in range(start, end + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
+
 
 # Number to Words Converter 
 def num_to_words(n):
@@ -45,13 +52,14 @@ def num_to_words(n):
 
 
 # Tic-Tac-Toe Board Printer
-def print_tic_tac_toe(board=None):
-    if board is None:
-        board = [str(i) for i in range(1, 10)]
-    for i in range(0, 9, 3):
-        print(" | ".join(board[i:i+3]))
-        if i < 6:
-            print("--+---+--")
+def print_tic_tac_toe():
+    board = [str(i) for i in range(1, 10)]
+    print(f"{board[0]} | {board[1]} | {board[2]}")
+    print("--+---+--")
+    print(f"{board[3]} | {board[4]} | {board[5]}")
+    print("--+---+--")
+    print(f"{board[6]} | {board[7]} | {board[8]}")
+
 
 # Anagram Checker
 def are_anagrams(s1, s2):
